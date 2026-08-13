@@ -1,25 +1,27 @@
 @layer base {
   :root,
   [data-theme='light'] {
-    /* Backgrounds */
+    
     --background: #faf9ff;
     --foreground: #1f1635;
 
-    /* Cards */
+    
     --card: #ffffff;
     --border: #e7e0f5;
     --input: #f4f0ff;
 
-    /* Primary */
+   
     --primary: #7c3aed;
     --primary-foreground: #ffffff;
 
-    /* Muted */
+
     --muted-primary: #ede9fe;
     --muted-foreground: #6b7280;
 
     /* Secondary Button */
     --secondary-button: #ddd6fe;
+    --skeleton-base-color: #e1e1f1;
+    --skeleton-highlight-color: #c5c5df;
   }
 
   /* ==========================
@@ -27,25 +29,26 @@
 ========================== */
 
   :root[data-theme='dark'] {
-    /* Backgrounds */
+    
     --background: #0f0a19;
     --foreground: #f8f7ff;
 
-    /* Cards */
+  
     --card: #1b142b;
     --border: #35264f;
     --input: #241b39;
 
-    /* Primary */
     --primary: #8b5cf6;
     --primary-foreground: #ffffff;
 
-    /* Muted */
+   
     --muted-primary: #2e1f4d;
     --muted-foreground: #b6b0c8;
 
-    /* Secondary Button */
+    
     --secondary-button: #4c1d95;
+    --skeleton-base-color: #424246;
+    --skeleton-highlight-color: #5d5a70;
   }
 }
 
@@ -67,4 +70,7 @@
   --color-secondary-button: var(--secondary-button);
 
   --color-input: var(--input);
+
+  --color-skeleton-base: var(--skeleton-base-color);
+  --color-skeleton-highlight: var(--skeleton-highlight-color);
 }
