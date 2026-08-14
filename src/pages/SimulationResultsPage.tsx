@@ -8,22 +8,15 @@ import {
 } from 'lucide-react';
 import { useParams } from 'react-router';
 
+import { AiInsightCardProps } from '@/components/features/SimulationResults/AiInsightCardProps';
 import { Card } from '@/components/features/SimulationResults/Card';
 import { PageHero } from '@/components/shared/PageHero';
-import type { SimulationFormData } from '@/data/simulation';
 import { useSimulationStorage } from '@/hooks/useSimulationStorage';
 import { calcMonthlySavings } from '@/utils/simulation';
-import { AiInsightCardProps } from '@/components/features/SimulationResults/AiInsightCardProps';
 
 
-const mock: SimulationFormData = {
-  income: 'R$ 5.000,00',
-  expenses: 'R$ 2.000,00',
-  debts: 'R$ 500,00',
-  goalName: 'Viagem',
-  goalAmount: 'R$ 15.000,00',
-  goalDeadline: '12',
-};
+
+
 
 const SimulationResultsPage = () => {
   const { id } = useParams<{ id: string }>();
