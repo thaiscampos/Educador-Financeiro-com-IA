@@ -8,7 +8,8 @@ const LOCAL_STORAGE_KEY = 'simulation-data';
 export const useSimulationStorage = () => {
   const saveFormData = (formData: SimulationFormData) => {
     const id = crypto.randomUUID();
-    const record: SimulationRecord = { ...formData, id };
+    const createdAt = new Date().toISOString();
+    const record: SimulationRecord = { ...formData, id, createdAt };
     const storage = localStorage.getItem(LOCAL_STORAGE_KEY);
     const savedData = storage
       ? (JSON.parse(storage) as SimulationRecord[])
@@ -38,6 +39,7 @@ export const useSimulationStorage = () => {
     return JSON.parse(storage) as SimulationRecord[];
   };
 
+
   const updateSimulation = (id: string, data: SimulationRecord) => {
     const storage = localStorage.getItem(LOCAL_STORAGE_KEY);
     const savedData = storage
@@ -50,5 +52,15 @@ export const useSimulationStorage = () => {
 
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updated));
   };
-  return { saveFormData, getFormData, updateSimulation, getAllSimulations };
+
+  const deleteSimulation = (id: string) => {
+    const storage = localStorage.getItem(LOCAL_STORAGE_KEY);
+    const savedData = storage
+      ? (JSON.parse(storage) as SimulationRecord[])
+      : [];
+    const filtered = savedData.filter((record) => record.id !== id);
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(filtered));
+  };
+
+  return { saveFormData, getFormData, updateSimulation, getAllSimulations, deleteSimulation };
 };
